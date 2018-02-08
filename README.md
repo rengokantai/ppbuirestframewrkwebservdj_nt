@@ -43,9 +43,39 @@ Note
 - Specify query set to retrieve all objects
 - Declare name attribute with string name
 
+
+### 21 Taking Advantage of Pagination
 ```
 REST_FRAMEWORK = {
-  'rest_framework.authentication.BasicAuthentication',
-  'rest_framework.authentication.SessionAuthentication'
+  'DEFAULT_PAGINATION_CLASS':
+  'rest_framework.pagination.LimitOffsetPagination',
+  'PAGE_SIZE':5
 }
 ```
+
+### 22 Customizing pagination
+pagination.py
+```
+from rest_framework.pagination import LimitOffsetPagination
+class LimitOffsetPaginationWithMaxLimit(LimitOffsetPagination):
+  max_limit=10     # when you specify limit=10000,still=10
+```
+settings.py
+```
+REST_FRAMEWORK = {
+  'DEFAULT_PAGINATION_CLASS':
+  'games.pagination.LimitOffsetPaginationWithMaxLimit',
+  'PAGE_SIZE':5   //applid when no limit query applied
+}
+```
+### 23 Understanding
+```
+REST_FRAMEWORK = {
+  'DEFAULT_AUTHENTICATON_CLASSES':(
+    'rest_framework.authentication.BasicAuthentication',
+    'rest_framework.authentication.SessionAuthentication'
+  )
+}
+```
+
+
