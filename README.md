@@ -23,7 +23,16 @@ DATABASES = {
   }
 }
 ```
+```
+psql --username=test1 --dbname=games --command="\dt"
+```
 
+### Managing Serialization and Deserialization with Hyperlinks
+Note:
+- Uses hyperlinked relationship
+- Represents relationship models with hyperlinks
+- Generates a field named URL
+- Create and update methods
 
 ```
 REST_FRAMEWORK = {
