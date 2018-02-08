@@ -34,6 +34,15 @@ Note:
 - Generates a field named URL
 - Create and update methods
 
+
+
+### Creating Class-Based Views and Using Generic Classes
+Note
+- Use Generic and Serializer class
+  - Return JSON representation for each HTTP request
+- Specify query set to retrieve all objects
+- Declare name attribute with string name
+
 ```
 REST_FRAMEWORK = {
   'rest_framework.authentication.BasicAuthentication',
